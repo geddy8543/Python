@@ -12,7 +12,7 @@ else:
 print("Done")  
 
 ## Exercise: have a user input their weight, ask them if lbs or kg and have it return the weight in the proper unit
-weight = int(input("Weight: "))
+weight = int(input("Weight: "))  # you can use int or float
 unit = input("(K)g or (L)bs: ")
 if unit.upper() == "K":
     converted = weight / 0.45
