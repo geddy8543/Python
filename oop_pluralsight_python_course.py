@@ -21,8 +21,14 @@ class Employee:
             f"{repr(self.position)}, {repr(self.salary)})"
         )
     
+    def __add__(self, other_employee):
+        # e.g. combines their age and returns a new employee
+        return Employee("New", self.age + other_employee.age, "dev", 2000)
+    
 employee1 = Employee("Ji-Soo", 38, "developer", 1200)
 employee2 = Employee("Lauren", 44, "tester", 1000)
+
+employee3 = employee1 + employee2
 
 # print(str(employee1)) #use this only when you need the str
 print(repr(employee1))
