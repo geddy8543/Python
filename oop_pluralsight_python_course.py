@@ -3,7 +3,7 @@ class Employee:
         self.name = name
         self.age = age
         self.position = position
-        self.set_salary = salary
+        self.set_salary(salary)
 
     def increase_ssalary(self, percent):
         self.salary += self.salary * (percent/100)
@@ -20,9 +20,13 @@ class Employee:
             f"{repr(self.name)}, {repr(self.age)}, "
             f"{repr(self.position)}, {repr(self.salary)})"
         )
-
-    def get_salary(self):
+    
+    @property
+    def salary(self):
         return self._salary
+        
+    # def get_salary(self):
+    #     return self._salary
     
     def set_salary(self, salary):
         if salary < 1000:
@@ -40,7 +44,8 @@ employee2 = Employee("Lauren", 44, "tester", 1000)
 # print(employee1.get_salary()) #will get error message
 
 employee1.set_salary(2000)
-print(employee1.get_salary())
+print(employee1.salary)
+# print(employee1.get_salary())
 
 # employee3 = employee1 + employee2 this is from the third module in the course
 
