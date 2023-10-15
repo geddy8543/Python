@@ -28,6 +28,7 @@ class Employee:
     # def get_salary(self):
     #     return self._salary
     
+    @salary.setter
     def set_salary(self, salary):
         if salary < 1000:
             raise ValueError('Minimum wage is $1000')
