@@ -28,10 +28,16 @@ class Employee:
 employee1 = Employee("Ji-Soo", 38, "developer", 1200)
 employee2 = Employee("Lauren", 44, "tester", 1000)
 
-employee3 = employee1 + employee2
+user_input = int(input("Input salary: ")) #module 4 
+if user_input < 1000:
+    raise ValueError('Minimum wage is $1000')
+else:
+    employee1.salary = user_input
+
+# employee3 = employee1 + employee2 this is from the third module in the course
 
 # print(str(employee1)) #use this only when you need the str
-print(repr(employee1))
+# print(repr(employee1))
 
 
     
