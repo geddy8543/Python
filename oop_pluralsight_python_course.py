@@ -22,12 +22,12 @@ class Employee:
         )
 
     def get_salary(self):
-        return self.salary
+        return self._salary
     
     def set_salary(self, salary):
         if salary < 1000:
             raise ValueError('Minimum wage is $1000')
-        self.salary = salary
+        self._salary = salary
     
     # def __add__(self, other_employee):
     #     # e.g. combines their age and returns a new employee
