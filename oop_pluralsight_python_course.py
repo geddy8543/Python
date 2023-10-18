@@ -3,7 +3,8 @@ class Employee:
         self.name = name
         self.age = age
         self.position = position
-        self.salary = salary
+        self.salary = salary #this tells you how much an employee makes in a month
+
 
     def increase_ssalary(self, percent):
         self.salary += self.salary * (percent/100)
@@ -33,6 +34,10 @@ class Employee:
         if salary < 1000:
             raise ValueError('Minimum wage is $1000')
         self._salary = salary
+
+    @property
+    def annual_salary(self):
+        return self.salary * 12
     
     # def __add__(self, other_employee):
     #     # e.g. combines their age and returns a new employee
