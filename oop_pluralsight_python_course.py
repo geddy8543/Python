@@ -3,8 +3,8 @@ class Employee:
         self.name = name
         self.age = age
         self.position = position
-        self.salary = salary #this tells you how much an employee makes in a month
-
+        self.salary = salary  #this tells you how much an employee makes in a month
+        self._annual_salary = None #non public attribute; will cache the result
 
     def increase_ssalary(self, percent):
         self.salary += self.salary * (percent/100)
@@ -33,11 +33,14 @@ class Employee:
     def set_salary(self, salary):
         if salary < 1000:
             raise ValueError('Minimum wage is $1000')
+        self._annual_salary = None #this will update everytime someone updates the salary
         self._salary = salary
 
-    @property
+    @property  #this is a computed property
     def annual_salary(self):
-        return self.salary * 12
+        if self._annual_salary is None:
+            self._annual_salary = self.salary * 12 #this will only compute if it's the first time someone tries to access the value
+        return self._annual_salary
     
     # def __add__(self, other_employee):
     #     # e.g. combines their age and returns a new employee
