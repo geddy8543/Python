@@ -6,7 +6,7 @@ class Employee:
         self.salary = salary  #this tells you how much an employee makes in a month
         self._annual_salary = None #non public attribute; will cache the result
 
-    def increase_ssalary(self, percent):
+    def increase_salary(self, percent):
         self.salary += self.salary * (percent/100)
 
     # def info(self): # we took the string from this out and put it in the def __str__ method instead
