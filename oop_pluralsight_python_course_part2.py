@@ -11,10 +11,22 @@ class Employee:  #Employee class will serve as a Parent class in the hierarchy
 class Tester(Employee): # the tester subclass (child class) will inherit all of the methods from the employee class
     def run_tests(self):
         print(f"Testing is started by {self.name}...")
-        print("Tests are done.")  
+        print("Tests are done.") 
+
+class Developer(Employee):
+    def increase_salary(self, percent, bonus=0):
+        self.salary += self.salary * (percent/100)
+        self.salary += bonus
 
 employee1 = Tester("Lauren", 44, 1000)
 
 employee1.increase_salary(20)
 print(employee1.salary)
 employee1.run_tests()
+
+try:
+    #something that raises the FloatingPointError or the ZeroDivisionError
+    raise FloatingPointError("Watch out, a floating point error!")
+except ArithmeticError as e:
+    #handle this error
+    print(e)
