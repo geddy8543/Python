@@ -9,9 +9,12 @@ class Employee:  #Employee class will serve as a Parent class in the hierarchy
         self.salary += self.salary * (percent/100)
 
 class Tester(Employee): # the tester subclass (child class) will inherit all of the methods from the employee class
-    pass   
+    def run_tests(self):
+        print(f"Testing is started by {self.name}...")
+        print("Tests are done.")  
 
 employee1 = Tester("Lauren", 44, 1000)
 
 employee1.increase_salary(20)
 print(employee1.salary)
+employee1.run_tests()
