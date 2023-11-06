@@ -10,12 +10,11 @@ class Employee:  #Employee class will serve as a Parent class in the hierarchy
     def increase_salary(self, percent):
         self.salary += self.salary * (percent/100)
 
-class Tester(Employee): # the tester subclass (child class) will inherit all of the methods from the employee class
-    def run_tests(self):
-        print(f"Testing is started by {self.name}...")
-        print("Tests are done.") 
+class SlotsInspectorMixin: #mixin tells you it will be used in a multiple inheritance scenario; you can add it to any class
+    def has_slots(self):
+        return hasattr(self, "__slots__")
 
-class Developer(Employee):
+class Developer(SlotsInspectorMixin, Employee): #2 superclasses, it will inherit from both
     __slots__ = ("framework") #add any additional attributes in the subclass
     
     def __init__(self, name, age, salary, framework):
