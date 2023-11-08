@@ -12,7 +12,7 @@ class Employee:
     def new_employee(cls, name, dob):
         now = date.today()
         age = now.year - dob.year - ((now.month, now.day) < (dob.month, dob.day))
-        return cls(name, age, cls.minimum_wage)
+        return cls(name, age, cls.minimum_wage) #instantiates new employee instance
 
     def __init__(self, name, age, salary):
         self.name = name
@@ -24,7 +24,7 @@ class Employee:
 
     @property
     def salary(self):
-        return self.salary
+        return self._salary
     
     @salary.setter
     def salary(self, salary):
@@ -32,6 +32,10 @@ class Employee:
             raise ValueError('Minimum wage is $1000')
         self._salary = salary
 
-print(Employee.__dict__)
+# print(Employee.__dict__)
+e = Employee.new_employee("Mary", date(1991, 8, 12))
+print(e.name)
+print(e.age)
+print(e.salary)
 
        
