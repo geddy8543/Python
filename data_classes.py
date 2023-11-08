@@ -1,13 +1,21 @@
 from dataclasses import dataclass
 
-class Project:
-    def __init__(self, name, payment, client):
-        self.name = name
-        self.payment = payment
-        self.client = client
+# class Project:
+#     def __init__(self, name, payment, client):
+#         self.name = name
+#         self.payment = payment
+#         self.client = client
 
-    def __repr__(self):
-        return f"Project(name={repr(self.name)}, payment={repr(self.payment)}, client={repr(self.client)})"
+#     def __repr__(self):
+#         return f"Project(name={repr(self.name)}, payment={repr(self.payment)}, client={repr(self.client)})"
+@dataclass(slots=True) #using dataclass you can redefine the project class like this:
+class Project:
+    name: str
+    payment: int
+    client: str
+
+    def notify_client(self):
+        print(f"Notifying the client about the progress of the {self.name}...")
         
 class Employee:
     def __init__(self, name, age, salary, project):
